@@ -4,21 +4,27 @@
   "main": "server.js",
   "license": "MIT",
   "dependencies": {
+    "@shelf/jest-mongodb": "^1.2.2",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jest": "^26.3.0",
+    "mongodb": "^3.6.0",
     "mongoose": "^5.9.28",
     "nodemon": "^2.0.4",
     "prettier": "^2.0.5",
     "supertest": "^4.0.2"
   },
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "test": "jest --watchAll --runInBand  --setupFiles dotenv/config"
   },
   "jest": {
-    "testEnvironment": "node"
+    "preset": "@shelf/jest-mongodb",
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }

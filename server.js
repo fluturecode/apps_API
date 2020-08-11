@@ -1,6 +1,14 @@
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
-}
+const express = require("express");
+const cors = require("cors");
 
-const app = require("http");
-app.createServer().listen(8080);
+// Imports routes
+const appRouter = require("./routes/route");
+
+const server = express();
+
+server.use(cors());
+server.use(express.json());
+
+server.use(appRouter);
+
+module.exports = server;

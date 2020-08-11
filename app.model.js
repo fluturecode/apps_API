@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 
-const Schema = mongoose.Schema;
-
-const appSchema = new Schema({
+const appSchema = new mongoose.Schema({
   id: {
     type: Number,
     required: true,
@@ -11,9 +9,6 @@ const appSchema = new Schema({
     type: String,
     required: true,
   },
-  versionKey: false,
 });
 
-const App = mongoose.model("App", appSchema);
-
-module.exports = App;
+module.exports = mongoose.model("App", appSchema);

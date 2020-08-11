@@ -1,32 +1,28 @@
 const express = require("express");
+const { Schema } = require("mongoose");
 const router = new express.Router();
-const mongoose = require("mongoose");
+const App = require("../app.model");
 
-let App = require("./route");
+router.get("/apps/:key", async (req, res) => {
+  const sort = {};
 
-router.get("/apps", async (req, res) => {
-  // Edge case -> If there is no id or name param given
   if (req.query.by === undefined) {
     res.send("Error: 'name' or 'id' is required.");
   }
+
   if (req.query.by) {
     const parts = req.query.by.split(":");
     sort[parts[0]] = parts[1] === "desc" ? -1 : 1;
   }
 
   try {
-    (await req.name) ||
-      req.id
-        .populate({
-          path: "apps",
-          options: {
-            limit: parseInt(req.query.max),
-            skip: parseInt(req.query.start),
-            sort,
-          },
-        })
-        .execPopulate();
-    res.send(req.name || req.id);
+    const apps = await App.find({ id: req.params.key }, null, {
+      limit: parseInt(req.query.max),
+      skip: parseInt(req.query.start),
+      end: parseInt(req.query.end),
+      sort,
+    });
+    res.send(apps);
   } catch (e) {
     res.status(500).send();
   }
