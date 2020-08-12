@@ -1,4 +1,4 @@
-### Build a simple PAGINATED API
+## Build a simple PAGINATED API
 
 ## Overview
 
