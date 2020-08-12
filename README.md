@@ -19,12 +19,19 @@ Javascript, Node.Js, MongoDB, Mongoose, Express, Cors, DotEnv, Nodemon, Prettier
 Create your project directory. You may use YARN or NPM alternatively, in which case please use the appropriate commands 
 
 mkdir (“project name”)
+
 cd (project name)
+
 yarn init -y ||  npm init
+
 yarn add express cors mongoose dotenv || npm instasll express cors mongoose dotenv
+
 yarn add nodemon || npm install nodemon
+
 touch server.js
+
 touch .env sample.env .gitignore
+
 Add your .env and node_modules to .gitignore
 
 ## Enviornment variables
