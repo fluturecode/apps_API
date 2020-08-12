@@ -61,8 +61,8 @@ This app has one endpoint which can be queried based on the requirements above. 
 
 /apps?by=id&start=1
 /apps?by=id&start=1&end=20
-/app?by=name&start=1&max=40
-/app?by=name&max=100
+/apps?by=name&start=1&max=40
+/apps?by=name&max=100
 
 ## Testing
  
