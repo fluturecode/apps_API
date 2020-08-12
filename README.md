@@ -62,7 +62,7 @@ This app has one endpoint which can be queried based on the requirements above. 
 /apps?by=id&start=1
 /apps?by=id&start=1&end=20
 /app?by=name&start=1&max=40
-/app?by=name&max=10
+/app?by=name&max=100
 
 ## Testing
  
@@ -74,6 +74,8 @@ From command line "heroku create". Follow the commands and log in to Heroku.
 Find your app and deploy with GitHub. Then from the command line "push heroku master".
 
 Alternately you can acces github remotely and deploy with these commands instead: "heroku create", "git remote -v", "git push heroku master"
+
+* Make sure to also configure your environment variables in Heroku, either from the command line or from the Heroku dashboard.
 
 ## Challenges
 
